@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn the 99 Names of Allah with a daily goal, progress tracker, and quiz.">
+  <meta name="description" content="Learn the 99 Names of Allah with a daily goal, progress tracker, flashcards, and quiz.">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>99 Names of Allah | Learning Tracker</title>
   <link rel="stylesheet" href="style.css">
@@ -52,6 +52,33 @@
         <input id="search" type="search" placeholder="Search a name or meaning" aria-label="Search names">
       </div>
       <div class="names-grid" id="names-list"></div>
+    </section>
+
+    <section class="card flashcards" aria-labelledby="flashcards-title">
+      <div class="flashcard-heading">
+        <div>
+          <h2 id="flashcards-title">Flashcards <span class="card-cat" aria-hidden="true">🐾</span></h2>
+          <p class="muted">Try to recall the meaning, then tap the card to reveal the answer.</p>
+        </div>
+        <p class="flashcard-count" id="flashcard-count">1 of 99</p>
+      </div>
+      <button id="flashcard" class="flashcard" type="button" aria-live="polite" aria-label="Flashcard. Click to reveal meaning.">
+        <span class="flashcard-hint" id="flashcard-hint">Tap to reveal meaning</span>
+        <span class="flashcard-number" id="flashcard-number">1 of 99</span>
+        <span class="flashcard-arabic" id="flashcard-arabic"></span>
+        <span class="flashcard-name" id="flashcard-name"></span>
+        <span class="flashcard-answer" id="flashcard-answer" hidden></span>
+      </button>
+      <div class="flashcard-actions" aria-label="Flashcard controls">
+        <button id="previous-card" type="button">Previous</button>
+        <button id="shuffle-cards" type="button">Shuffle</button>
+        <button id="next-card" type="button">Next</button>
+      </div>
+      <div class="flashcard-actions review-actions" aria-label="Flashcard review status">
+        <button id="review-card" class="secondary-button" type="button">Review again</button>
+        <button id="know-card" type="button">I know this</button>
+      </div>
+      <p class="flashcard-status muted" id="flashcard-status">Marked known: 0 · Review again: 0</p>
     </section>
 
     <section class="card quiz" aria-live="polite">
