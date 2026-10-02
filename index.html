@@ -9,11 +9,23 @@
 </head>
 <body>
   <header class="hero">
-    <h1>99 Names of Allah</h1>
-    <p>Learn with intention: set a daily goal, study each name and meaning, track your progress, and test your recall.</p>
+    <div class="hero-top">
+      <a class="brand" href="#top" aria-label="99 Names of Allah home">99 Names of Allah</a>
+      <div class="theme-picker" role="group" aria-label="Choose a color theme">
+        <span class="theme-label">Theme</span>
+        <button class="theme-button active" type="button" data-theme="default">Default</button>
+        <button class="theme-button" type="button" data-theme="dark">Dark</button>
+        <button class="theme-button" type="button" data-theme="pink">Pink cats</button>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <span class="hero-cat" aria-hidden="true">🐱</span>
+      <h1>99 Names of Allah</h1>
+      <p>Learn with intention: set a daily goal, study each name and meaning, track your progress, and test your recall.</p>
+    </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="top">
     <section class="grid" aria-label="Learning dashboard">
       <article class="card">
         <h2>Today's goal</h2>
@@ -22,7 +34,7 @@
         <button id="save-goal">Save goal</button>
       </article>
       <article class="card">
-        <h2>Today's progress</h2>
+        <h2>Today's progress <span class="card-cat" aria-hidden="true">🐾</span></h2>
         <div class="metric" id="today-count">0</div>
         <p class="muted" id="goal-text">0 of 3 names completed</p>
         <div class="progress-track" aria-label="Daily goal progress"><div class="progress-bar" id="progress-bar"></div></div>
@@ -36,7 +48,7 @@
     </section>
 
     <section>
-      <h2 class="section-title">Study the names</h2>
+      <h2 class="section-title">Study the names <span class="section-cat" aria-hidden="true">🐱</span></h2>
       <div class="controls">
         <input id="search" type="search" placeholder="Search a name or meaning" aria-label="Search names">
       </div>
@@ -44,7 +56,7 @@
     </section>
 
     <section class="card quiz" aria-live="polite">
-      <h2>Quick quiz</h2>
+      <h2>Quick quiz <span class="card-cat" aria-hidden="true">🐾</span></h2>
       <p class="muted">Choose the transliterated name that matches the meaning.</p>
       <div class="question" id="quiz-question"></div>
       <div class="options" id="quiz-options"></div>
@@ -53,7 +65,7 @@
     </section>
   </main>
 
-  <footer>Built for consistent learning and reflection.</footer>
+  <footer>Built for consistent learning and reflection <span aria-hidden="true">🐾</span></footer>
   <script src="app.js"></script>
 </body>
 </html>

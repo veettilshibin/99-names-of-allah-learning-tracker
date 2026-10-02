@@ -101,6 +101,7 @@ const names = [
 ];
 
 const storageKey = "allah-names-tracker-v1";
+const themeKey = "allah-names-theme-v1";
 const todayKey = new Date().toISOString().slice(0, 10);
 const state = JSON.parse(localStorage.getItem(storageKey)) || { goal: 3, completed: {}, daily: {} };
 state.daily[todayKey] ||= [];
@@ -115,12 +116,19 @@ const progressBar = document.querySelector("#progress-bar");
 const quizQuestion = document.querySelector("#quiz-question");
 const options = document.querySelector("#quiz-options");
 const quizResult = document.querySelector("#quiz-result");
+const themeButtons = document.querySelectorAll(".theme-button");
 
 goalInput.value = state.goal;
 
 function save() { localStorage.setItem(storageKey, JSON.stringify(state)); }
 function learnedToday() { return state.daily[todayKey].length; }
 function learnedTotal() { return Object.keys(state.completed).length; }
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme === "default" ? "" : theme;
+  themeButtons.forEach(button => button.classList.toggle("active", button.dataset.theme === theme));
+  localStorage.setItem(themeKey, theme);
+}
 
 function renderStats() {
   const today = learnedToday();
@@ -166,6 +174,7 @@ list.addEventListener("change", event => {
 });
 
 search.addEventListener("input", event => renderNames(event.target.value));
+themeButtons.forEach(button => button.addEventListener("click", () => applyTheme(button.dataset.theme)));
 document.querySelector("#save-goal").addEventListener("click", () => {
   state.goal = Math.max(1, Number(goalInput.value) || 1);
   goalInput.value = state.goal;
@@ -195,7 +204,7 @@ function newQuestion() {
     button.addEventListener("click", () => {
       if (option[1] === answer[1]) {
         quizResult.textContent = "Correct. Well done!";
-        quizResult.style.color = "#20705b";
+        quizResult.style.color = "var(--accent)";
       } else {
         quizResult.textContent = `Not quite. The answer is ${answer[1]}.`;
         quizResult.style.color = "#a44032";
@@ -205,6 +214,7 @@ function newQuestion() {
   });
 }
 
+applyTheme(localStorage.getItem(themeKey) || "default");
 document.querySelector("#next-question").addEventListener("click", () => { quizResult.textContent = ""; newQuestion(); });
 renderStats();
 renderNames();
