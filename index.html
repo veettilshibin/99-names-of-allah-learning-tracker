@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the 99 Names of Allah with a daily goal, progress tracker, and quiz.">
+  <title>99 Names of Allah | Learning Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>99 Names of Allah</h1>
+    <p>Learn with intention: set a daily goal, study each name and meaning, track your progress, and test your recall.</p>
+  </header>
+
+  <main class="container">
+    <section class="grid" aria-label="Learning dashboard">
+      <article class="card">
+        <h2>Today's goal</h2>
+        <label class="muted" for="goal">Names to learn today</label>
+        <input id="goal" type="number" min="1" max="99" aria-label="Daily goal">
+        <button id="save-goal">Save goal</button>
+      </article>
+      <article class="card">
+        <h2>Today's progress</h2>
+        <div class="metric" id="today-count">0</div>
+        <p class="muted" id="goal-text">0 of 3 names completed</p>
+        <div class="progress-track" aria-label="Daily goal progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <button id="reset-today">Reset today</button>
+      </article>
+      <article class="card">
+        <h2>Overall learning</h2>
+        <div class="metric" id="total-count">0 / 99</div>
+        <p class="muted">Your progress is saved only in this browser on this device.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="section-title">Study the names</h2>
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search a name or meaning" aria-label="Search names">
+      </div>
+      <div class="names-grid" id="names-list"></div>
+    </section>
+
+    <section class="card quiz" aria-live="polite">
+      <h2>Quick quiz</h2>
+      <p class="muted">Choose the transliterated name that matches the meaning.</p>
+      <div class="question" id="quiz-question"></div>
+      <div class="options" id="quiz-options"></div>
+      <p class="quiz-result" id="quiz-result"></p>
+      <button id="next-question">Next question</button>
+    </section>
+  </main>
+
+  <footer>Built for consistent learning and reflection.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
