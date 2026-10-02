@@ -102,6 +102,12 @@ const names = [
 
 const storageKey = "allah-names-tracker-v1";
 const themeKey = "allah-names-theme-v1";
+const themes = ["default", "dark", "pink"];
+const themeDetails = {
+  default: { icon: "☀️", label: "Default theme. Switch to dark theme." },
+  dark: { icon: "🌙", label: "Dark theme. Switch to pink cats theme." },
+  pink: { icon: "🐱", label: "Pink cats theme. Switch to default theme." }
+};
 const todayKey = new Date().toISOString().slice(0, 10);
 const state = JSON.parse(localStorage.getItem(storageKey)) || { goal: 3, completed: {}, daily: {} };
 state.daily[todayKey] ||= [];
@@ -116,7 +122,8 @@ const progressBar = document.querySelector("#progress-bar");
 const quizQuestion = document.querySelector("#quiz-question");
 const options = document.querySelector("#quiz-options");
 const quizResult = document.querySelector("#quiz-result");
-const themeButtons = document.querySelectorAll(".theme-button");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeIcon = document.querySelector("#theme-icon");
 
 goalInput.value = state.goal;
 
@@ -126,8 +133,16 @@ function learnedTotal() { return Object.keys(state.completed).length; }
 
 function applyTheme(theme) {
   document.body.dataset.theme = theme === "default" ? "" : theme;
-  themeButtons.forEach(button => button.classList.toggle("active", button.dataset.theme === theme));
+  themeIcon.textContent = themeDetails[theme].icon;
+  themeToggle.setAttribute("aria-label", themeDetails[theme].label);
+  themeToggle.title = themeDetails[theme].label;
   localStorage.setItem(themeKey, theme);
+}
+
+function cycleTheme() {
+  const currentTheme = localStorage.getItem(themeKey) || "default";
+  const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+  applyTheme(nextTheme);
 }
 
 function renderStats() {
@@ -174,7 +189,7 @@ list.addEventListener("change", event => {
 });
 
 search.addEventListener("input", event => renderNames(event.target.value));
-themeButtons.forEach(button => button.addEventListener("click", () => applyTheme(button.dataset.theme)));
+themeToggle.addEventListener("click", cycleTheme);
 document.querySelector("#save-goal").addEventListener("click", () => {
   state.goal = Math.max(1, Number(goalInput.value) || 1);
   goalInput.value = state.goal;
