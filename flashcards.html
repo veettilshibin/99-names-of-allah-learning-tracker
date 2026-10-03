@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practice Divine Names with interactive flashcards.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Flashcards | Divine Names</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero practice-hero">
+    <div class="hero-top">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><span id="theme-icon" aria-hidden="true">☀️</span><span class="sr-only">Switch theme</span></button>
+      <a class="brand" href="index.html" aria-label="Divine Names home">Divine Names</a>
+      <nav class="top-nav" aria-label="Primary navigation"><a href="index.html#practice-title">Practice Divine Names</a></nav>
+    </div>
+    <div class="hero-copy"><span class="hero-cat" aria-hidden="true">🐱</span><h1>Flashcards</h1><p>Recall the meaning first, then reveal your answer.</p></div>
+  </header>
+  <main class="container">
+    <section class="card flashcards" aria-labelledby="flashcards-title">
+      <div class="flashcard-heading"><div><h2 id="flashcards-title">Flashcards <span class="card-cat" aria-hidden="true">🐾</span></h2><p class="muted">Tap the card to reveal or hide its meaning.</p></div><p class="flashcard-count" id="flashcard-count">1 of 99</p></div>
+      <button id="flashcard" class="flashcard" type="button" aria-live="polite" aria-label="Flashcard. Click to reveal meaning."><span class="flashcard-hint" id="flashcard-hint">Tap to reveal meaning</span><span class="flashcard-number" id="flashcard-number">1 of 99</span><span class="flashcard-arabic" id="flashcard-arabic"></span><span class="flashcard-name" id="flashcard-name"></span><span class="flashcard-answer" id="flashcard-answer" hidden></span></button>
+      <div class="flashcard-actions" aria-label="Flashcard controls"><button id="previous-card" type="button">Previous</button><button id="shuffle-cards" type="button">Shuffle</button><button id="next-card" type="button">Next</button></div>
+      <div class="flashcard-actions review-actions" aria-label="Flashcard review status"><button id="review-card" class="secondary-button" type="button">Review again</button><button id="know-card" type="button">I know this</button></div>
+      <p class="flashcard-status muted" id="flashcard-status">Marked known: 0 · Review again: 0</p>
+    </section>
+  </main>
+  <footer>Built for consistent learning and reflection <span aria-hidden="true">🐾</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>

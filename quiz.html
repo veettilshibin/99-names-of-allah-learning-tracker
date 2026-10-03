@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Test yourself on the Divine Names with a quick quiz.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Quick Quiz | Divine Names</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero practice-hero">
+    <div class="hero-top">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><span id="theme-icon" aria-hidden="true">☀️</span><span class="sr-only">Switch theme</span></button>
+      <a class="brand" href="index.html" aria-label="Divine Names home">Divine Names</a>
+      <nav class="top-nav" aria-label="Primary navigation"><a href="index.html#practice-title">Practice Divine Names</a></nav>
+    </div>
+    <div class="hero-copy"><span class="hero-cat" aria-hidden="true">🐱</span><h1>Quick Quiz</h1><p>Test your recall of the Divine Names and their meanings.</p></div>
+  </header>
+  <main class="container">
+    <section class="card quiz" aria-live="polite">
+      <h2>Quick quiz <span class="card-cat" aria-hidden="true">🐾</span></h2>
+      <p class="muted">Choose the transliterated name that matches the meaning.</p>
+      <div class="question" id="quiz-question"></div>
+      <div class="options" id="quiz-options"></div>
+      <p class="quiz-result" id="quiz-result"></p>
+      <button id="next-question">Next question</button>
+    </section>
+  </main>
+  <footer>Built for consistent learning and reflection <span aria-hidden="true">🐾</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
